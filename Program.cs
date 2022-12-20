@@ -4,30 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Prime_Numbers
+namespace Perfect_Numbers
 {
     internal class Program
     {
-        static bool IsPrime(int n)
+        static bool IsPerfect(int num)
         {
-            for (int i = 2; i < n; i++)
-                if (n % i == 0)
-                    return false;
-            return true;
+            int sum = 0;
+            for (int i = 1; i < num; i++)
+
+                if (num % i == 0)
+                    sum = sum + i;
+            if (sum == num)
+                return true;
+            return false;
+
         }
         static void Main(string[] args)
         {
             int n1, n2;
-            Console.WriteLine("please enter first num :");
+            Console.WriteLine("please enter the first number:");
             n1 = int.Parse(Console.ReadLine());
-            Console.WriteLine("please enter second num :");
+            Console.WriteLine("please enter the second number:");
             n2 = int.Parse(Console.ReadLine());
+
+
             for (int i = n1; i <= n2; i++)
             {
-                if (IsPrime(i))
+                if (IsPerfect(i))
                     Console.WriteLine("{0}", i);
             }
         }
     }
 }
-    
